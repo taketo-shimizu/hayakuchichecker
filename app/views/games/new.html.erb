@@ -1,0 +1,110 @@
+<% content_for(:title, '計測画面') %>
+  <div class= "container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1>あそびかた</h1>
+          <div class= "explanation" id="explanation">
+            <p>
+              STARTボタンを押して話しかけてください。<br>
+              あなたの話す速さと理想の速さにどのくらい<br>
+              ズレがあるのか測定を行います。<br>
+              終わったらSTOPボタンを押してください。<br>
+              結果画面に切り替わります。<br>
+              <font color="red">※話し終えたらすぐにSTOPボタンを押してください<br>
+                                ※無音状態は避けてください</font>
+            </p> 
+          </div>
+
+        <div class="d-flex flex-column bd-highlight mb-3"> 
+          <div class = "status_box">
+          <%= image_tag 'audio_hakei.jpeg', class: 'audio_hakei' %>
+          <p id = "status"><font size="3"></font></p>
+          </div>
+          <div class="d-flex justify-content-center">
+          <button class="btn btn-danger " id="start_btn">START</button>
+          <button class="btn btn-danger " id="stop_btn">STOP</button>
+          </div>
+          <input class="form-control" id="counter" name="counter" type="text" value="00:00:00:00">
+        </div>
+        <p id="sampletext" ><font size="2">
+        <話すことが思いつかない方向け>むかしむかしあるところに、おじいさんとおばあさんが住んでいました。
+        おじいさんは山へしばかりに、おばあさんは川へせんたくに行きました。
+        おばあさんが川でせんたくをしていると、ドンブラコ、ドンブラコと、大きな桃が流れて
+        きました。「おや、これは良いおみやげになるわ」
+        おばあさんは大きな桃をひろいあげて、家に持ち帰りました。
+        そして、おじいさんとおばあさんが桃を食べようと桃を切ってみると、なんと中から元気
+        の良い赤ちゃんが飛び出してきました。
+        「これはきっと、神さまがくださったにちがいない」
+        子どものいなかったおじいさんとおばあさんは、大喜びです。
+        桃から生まれた男の子を、おじいさんとおばあさんは桃太郎と名付けました。
+        </font></p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    //ストップウォッチ機能
+    $(function(){
+      reset_timer();
+    
+      var timer;
+      var timerID;
+      var timerFlag = 0;	// 0:停止 1:動作
+    
+      
+      $("#start_btn").on("click", function(){
+        start_count();
+      });
+
+      $("#stop_btn").on("click", function(){
+        stop_count();
+      });
+   
+      function reset_timer() {
+        if(timerFlag === 1){
+          stop_count();
+        }
+        timer = 0; 
+        $("#counter").val("00:00:00:00");
+      }
+    
+  
+      function start_count() { 					
+        $("#start_btn").val("stop");
+        timerFlag = 1;
+        timerID = setInterval(count_up, 10); 
+      }
+    
+
+      function stop_count() { 					
+        $("#stop_btn").val("start");
+        timerFlag = 0;
+        clearInterval(timerID);
+      }
+    
+  
+      function count_up() {
+        ++timer;
+        var formatTimer = counter_format(timer);
+        $("#counter").val(formatTimer);
+      }
+    
+      function counter_format(num) {
+        var numZan = num;	// 残りの時間(10ミリ秒単位)
+        var hh = Math.floor(numZan / (100 * 60 * 60));
+        numZan = numZan - (hh * 100 * 60 * 60);
+        var mm = Math.floor(numZan / (100 * 60));
+        numZan = numZan -(mm * 100 * 60);
+        var ss = Math.floor(numZan / 100);
+        numZan = numZan - (ss * 100);
+        var ms = numZan;
+        
+        if(hh < 10){hh = "0" + hh;}
+        if(mm < 10){mm = "0" + mm;}
+        if(ss < 10){ss = "0" + ss;}
+        if(ms < 10){ms = "0" + ms;}
+        return hh + ":" + mm + ":" + ss + ":" + ms;
+      }
+    });
+  
+  </script>

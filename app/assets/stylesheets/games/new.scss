@@ -1,0 +1,70 @@
+// Place all the styles related to the games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.container {
+    position: relative;
+    background-image: image-url("haikei.jpeg");
+    background-size:cover;
+    background-position: center;
+    height: 100vh;
+    min-width: 100%;
+h1{
+    color: white;
+    font-family: 'DotGothic16', sans-serif;
+    text-align: center;
+ 
+
+}
+
+  
+.explanation {
+    text-align:center
+    
+}
+
+.box_status{
+    position: relative;
+}
+
+#status {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+
+}
+
+
+p {
+    font-size: 1.1em;
+    font-weight: 800;
+    color: white;
+    display: inline-block;
+    text-align: left;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+.audio_hakei {
+    height: 20vh;
+    width: 100%;
+}
+
+
+input {
+    margin:0 auto;
+    width:200px;
+    top: 150px;
+}
+
+.btn-danger {
+    background: gray;
+    color: white; 
+    border-color: white;
+}
+
+.btn-danger:hover, .btn-danger:active {
+    background-color: gray !important;
+    border-color: white !important;
+}
+}
