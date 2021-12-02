@@ -36,4 +36,3 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore bundle files
-vendor/bundle
