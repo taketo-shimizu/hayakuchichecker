@@ -10,39 +10,26 @@
     min-width: 100%;
 h1{
     color: white;
-    font-family: 'DotGothic16', sans-serif;
     text-align: center;
+}
  
-
-}
-
-  
 .explanation {
-    text-align:center
-    
-}
-
-.box_status{
-    position: relative;
+    text-align:center 
 }
 
 #status {
     position: absolute;
-    top: 56%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%,-50%);
     color: #fff;
-
 }
 
-
 p {
-    font-size: 1.1em;
     font-weight: 800;
     color: white;
     display: inline-block;
     text-align: left;
-    font-family: 'DotGothic16', sans-serif;
 }
 
 .audio_hakei {
@@ -53,18 +40,40 @@ p {
 
 input {
     margin:0 auto;
-    width:200px;
+    width:150px;
     top: 150px;
+    font-size: 2rem;
 }
 
 .btn-danger {
     background: gray;
     color: white; 
     border-color: white;
+    width: 120px;
+    height: 45px;
+    font-size: 2rem;
 }
 
 .btn-danger:hover, .btn-danger:active {
     background-color: gray !important;
     border-color: white !important;
 }
+
+@media screen and (max-width: 550px) {
+    #status {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: #fff;
+    }
+    input {
+        margin:0 auto;
+        width:120px;
+        top: 150px;
+        font-size: 3.8rem;
+    }
+    
 }
+}
+

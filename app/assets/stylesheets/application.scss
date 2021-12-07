@@ -2,3 +2,37 @@
 @import 'games/result';
 @import 'index';
 @import 'bootstrap';
+
+/* ↓PC（横幅550px超）の場合 */
+html{
+    /* 1rem = 10pxと定義 */
+    font-size: 10px;
+}
+body{
+    /*基本のフォントサイズは16px */
+    font-size: 1.6rem;
+}
+h1{
+    /* 見出しは大きめの30px、パディングを20px*/
+    font-size: 3rem;
+    padding: 2rem;
+}
+
+
+/* ↓スマホ（横幅550px以下）の場合 */
+@media screen and (max-width: 550px) {
+html{
+    /* 1rem = 5pxと再定義 */
+    font-size: 5px;
+}
+body{
+    /* フォントサイズを少し小さく14pxに（5px * 2.8rem = 14px） */
+    font-size: 2.8rem;
+}
+h1{
+    /* 見出しのサイズを小さく20pxに（5px * 4rem = 20px） */
+    font-size: 5rem;
+    /* パディングはPCの半分の10pxにしますが、ここで何も指定しなくても5px * 2rem = 10pxに自動で再計算されるはず */
+}
+
+}

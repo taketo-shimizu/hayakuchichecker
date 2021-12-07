@@ -8,14 +8,10 @@
 
 .title {
     position:absolute;
-    top: 10px;
-    left: 55%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
+    left: 38%;
     color: white;
-    font-family: 'DotGothic16', sans-serif;
-    animation: flicker 1.5s infinite alternate;
+    
+    //animation: flicker 1.5s infinite alternate;
 }
 /*@keyframes flicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
@@ -41,33 +37,18 @@
     position: absolute;
     left: 40%;
     top: 20%;
- 
-   
-}
-.new {
-    color: white;
-    font-size: 18px;
-    
-}
-.training{
-    font-family: 'DotGothic16', sans-serif;
-    color: white;
     font-weight: bold;
-    font-size: 20px;
 }
+
 .col-color {
     color :white;
-    font-family: 'DotGothic16', sans-serif;
+  
 }
-}
-@media (max-width: 540px) {
-    .top-wrapper {
-      height: 650px;
-      background-position: 30% 50%;
-    .btn-primary {
-      width: 200px;
-      top: 25%;
-    }
-    }
 
+@media screen and (max-width: 550px) {
+    .title {
+        left: 26%;
+        color: white;
+    }
+}
 }
