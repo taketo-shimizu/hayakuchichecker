@@ -18,7 +18,7 @@ $(function(){
         
     $("#stop_btn").on("click", function(){
       //音声認識を完了
-   
+      speech.stop();
       $("#status").text("結果画面へ移ります・・・");
       var e_time = new Date();
       var diff = e_time.getTime() - s_time.getTime();
@@ -65,7 +65,7 @@ $(function(){
             console.log("1秒あたりの文字数", fast_talking_score);
          
             
-            location.href = '/games/result?' + fast_talking_score + "," + word_count + "," + talking_time;
+            //location.href = '/games/result?' + fast_talking_score + "," + word_count + "," + talking_time;
           })
         }
       }
