@@ -65,7 +65,7 @@ $(function(){
             console.log("1秒あたりの文字数", fast_talking_score);
          
             
-            //location.href = '/games/result?' + fast_talking_score + "," + word_count + "," + talking_time;
+            location.href = '/games/result?' + fast_talking_score + "," + word_count + "," + talking_time;
           })
         }
       }
