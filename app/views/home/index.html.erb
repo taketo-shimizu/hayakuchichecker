@@ -1,21 +1,22 @@
 <div class="top-wrapper">
   <div class="title">
-    <strong><font size="7">はやくちチェッカー</font></strong>
+    <h1>はやくちチェッカー</h1>
   </div>
   <div class = "menu">
-    <%= link_to new_game_url, class:"new" do %>
-        <span style="font-size:large; color:white;">▶︎NEW GAME</span>
+    <%= link_to new_game_url, data: {"turbolinks" => false} do %>
+        <p><font color="white">▶︎NEW GAME</font></p>
     <%end%>
-    <%= link_to "#",class:"training" do %>
-        <span>▶︎一般人モード（工事中）</span>
+    <%= link_to "#" do %>
+        <p><font color="white">▶︎一般人モード（工事中）</font></p>
    <% end %>
-   <%= link_to "#",class:"training" do %>
-        <span>▶︎平野レミモード（工事中)</span>
+   <%= link_to "#" do %>
+        <p><font color="white">▶︎平野レミモード（工事中)</font></p>
    <% end %>
-   <%= link_to "#",class:"training" do %>
-        <span >▶︎渡辺陽一モード（工事中）</span>
+   <%= link_to "#" do %>
+        <p><font color="white">▶︎渡辺陽一モード（工事中）</font></p>
    <% end %>
   </div>
+  
   <footer>
   <div class="fixed-bottom">
     <div class ="text-center">

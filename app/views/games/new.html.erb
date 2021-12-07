@@ -16,17 +16,15 @@
           </div>
 
         <div class="d-flex flex-column bd-highlight mb-3"> 
-          <div class = "status_box">
           <%= image_tag 'audio_hakei.jpeg', class: 'audio_hakei' %>
-          <p id = "status"><font size="3"></font></p>
-          </div>
+          <p id = "status"></p>
           <div class="d-flex justify-content-center">
-          <button class="btn btn-danger " id="start_btn">START</button>
-          <button class="btn btn-danger " id="stop_btn">STOP</button>
+          <button class="btn btn-danger btn-lg" id="start_btn">START</button>
+          <button class="btn btn-danger btn-lg" id="stop_btn">STOP</button>
           </div>
           <input class="form-control" id="counter" name="counter" type="text" value="00:00:00:00">
         </div>
-        <p id="sampletext" ><font size="2">
+        <p id="sampletext" >
         <話すことが思いつかない方向け>むかしむかしあるところに、おじいさんとおばあさんが住んでいました。
         おじいさんは山へしばかりに、おばあさんは川へせんたくに行きました。
         おばあさんが川でせんたくをしていると、ドンブラコ、ドンブラコと、大きな桃が流れて
@@ -37,158 +35,7 @@
         「これはきっと、神さまがくださったにちがいない」
         子どものいなかったおじいさんとおばあさんは、大喜びです。
         桃から生まれた男の子を、おじいさんとおばあさんは桃太郎と名付けました。
-        </font></p>
+        </p>
       </div>
     </div>
   </div>
-  
-  <script>
-    window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-    var speech = new webkitSpeechRecognition();
-    speech.continuous = true;
-    speech.interimResults = true;
-    speech.lang = 'ja-JP';
-
-    const start_btn = document.getElementById('start_btn');
-    const stop_btn = document.getElementById('stop_btn');
-    
-    start_btn.onclick = function() { 
-      //音声認識を開始
-      speech.start();
-      s_time = new Date();
-      
-      $("#status").text("計測中・・・");
-      setInterval (function() {
-        $("#status").fadeOut(1000).fadeIn(1000);
-      },2000);
-    }
-        
-    stop_btn.onclick = function() {
-      //音声認識を完了
-      $("#status").text("結果画面へ移ります・・・");
-      var e_time = new Date();
-      var diff = e_time.getTime() - s_time.getTime();
-      var talking_time = diff / 1000;
-      console.log("経過時間(秒):", talking_time);
-      //音声認識の結果を返す
-      speech.onresult = function (e) {
-        if (e.results[0].isFinal) {
-          var autotext = e.results[0][0].transcript
-          console.log("発した文字", autotext)
-          var data = {
-            //gooラボ ひらがな化API
-            app_id: 'a5e4e8dd5686de7743b620c720e89beca5e5a5dca31ed4a74b7b6efddf5cebc1',
-            sentence: autotext,
-            output_type: "hiragana",
-            
-            //yahoo ルビ振りAPI
-            /*id: "1234-2",
-            jsonrpc: "2.0",
-            method: "jlp.furiganaservice.furigana",
-            params: {
-              q: "漢字",
-              grade: 1
-            }*/
-          };
-          
-          jsonEncoded = JSON.stringify(data);
-          console.log(jsonEncoded);
-          
-          $.ajax ( {
-            type: "POST",
-            url: "https://labs.goo.ne.jp/api/hiragana",
-            contentType: "application/json",
-            data: jsonEncoded,
-          } )
-          .done(function(data) {
-            console.log("発した文字(ひらがな):", data.converted);
-            var word_count = data.converted.replace(/\s+/g,'').length;
-            console.log("発した文字数:", word_count);
-            var fast_talking_score = word_count/talking_time;
-            console.log("1秒あたりの文字数", fast_talking_score);
-         
-            $.ajax({
-              url: '/games/new',  
-              type: 'GET',
-              dataType: 'json',
-              async: true,
-              data: {
-                fast_talking_score: fast_talking_score,
-              },
-            });
-            location.href = '/games/result?' + fast_talking_score + "," + word_count + "," + talking_time;
-          })
-        }
-      }
-      speech.onerror = function () {
-        $("#status").text("計測できませんでした。。");
-       
-      }
-    }
-  
-    
-    //ストップウォッチ機能
-    $(function(){
-      reset_timer();
-    
-      var timer;
-      var timerID;
-      var timerFlag = 0;	// 0:停止 1:動作
-    
-      
-      $("#start_btn").on("click", function(){
-        start_count();
-      });
-
-      $("#stop_btn").on("click", function(){
-        stop_count();
-      });
-   
-      function reset_timer() {
-        if(timerFlag === 1){
-          stop_count();
-        }
-        timer = 0; 
-        $("#counter").val("00:00:00:00");
-      }
-    
-  
-      function start_count() { 					
-        $("#start_btn").val("stop");
-        timerFlag = 1;
-        timerID = setInterval(count_up, 10); 
-      }
-    
-
-      function stop_count() { 					
-        $("#stop_btn").val("start");
-        timerFlag = 0;
-        clearInterval(timerID);
-      }
-    
-  
-      function count_up() {
-        ++timer;
-        var formatTimer = counter_format(timer);
-        $("#counter").val(formatTimer);
-      }
-    
-      function counter_format(num) {
-        var numZan = num;	// 残りの時間(10ミリ秒単位)
-        var hh = Math.floor(numZan / (100 * 60 * 60));
-        numZan = numZan - (hh * 100 * 60 * 60);
-        var mm = Math.floor(numZan / (100 * 60));
-        numZan = numZan -(mm * 100 * 60);
-        var ss = Math.floor(numZan / 100);
-        numZan = numZan - (ss * 100);
-        var ms = numZan;
-        
-        if(hh < 10){hh = "0" + hh;}
-        if(mm < 10){mm = "0" + mm;}
-        if(ss < 10){ss = "0" + ss;}
-        if(ms < 10){ms = "0" + ms;}
-        return hh + ":" + mm + ":" + ss + ":" + ms;
-      }
-    });
-  
-  </script>
