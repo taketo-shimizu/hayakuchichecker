@@ -1,3 +1,3 @@
 class TrainingsController < ApplicationController
-  def new; end
+  def youichi_mode; end
 end

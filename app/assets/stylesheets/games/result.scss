@@ -1,7 +1,7 @@
 .container {
     position: relative;
     background-image: image-url("haikei.jpeg");
-    background-size:cover;
+    background-size: cover;
     background-position: center;
     height: 100vh;
     min-width: 100%;
@@ -9,15 +9,19 @@
 
 #result_image {
     top:10px;
-    text-align:center;
+    text-align: center;
 }
 
 #result_message_1 {
-    text-align:center;
+    text-align: center;
 }
 
 #result_message_2 {
-    text-align:center;
+    text-align: center;
+}
+
+#result_message_3 {
+    text-align: center;
 }
 
 #image {
@@ -25,9 +29,11 @@
     width: 300px;
 }
 
-.replay {
+.training_menu {
+    display: flex;
+    flex-direction: column;
     color: white;
-    font-size: 25px;
+    text-align: center;
 }
 
 

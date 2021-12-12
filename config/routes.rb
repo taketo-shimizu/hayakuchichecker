@@ -7,5 +7,10 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :trainings, only: %i[new create]
+  resources :trainings do
+    collection do
+      get :youichi_mode
+      
+    end
+  end
 end
