@@ -1,0 +1,50 @@
+<% content_for(:title, '計測画面') %>
+<div class="container">
+  <div class="row">
+  <%= render "shared/header" %>
+  <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
+    <h1>ゲームメニュー</h1>
+    <div class= "fake"></div>
+    <div class= "text-left">
+      <div class="menu_1 m-5">
+      <%= link_to new_game_path, data: {"turbolinks" => false} do %>
+          <button class="btn btn-primary btn-lg">NEW GAME</button>
+      <%end%>
+      <p class="menu">初めての方はまず自分が早口かどうか計測しましょう</p>
+      </div>
+      <div class="menu_2 m-5">
+      <%= link_to youichi_mode_trainings_path, data: {"turbolinks" => false} do %>
+          <button class="btn btn-primary btn-lg">渡辺陽一モード</button>
+      <% end %>
+      <p class="menu">どうしようもなく早口の方の矯正トレーニングです</p>
+      </div>
+      <div class="menu_3 m-5">
+      <%= link_to youichi_mode_trainings_path, data: {"turbolinks" => false} do %>
+          <button class="btn btn-primary btn-lg">ウーマンラッシュアワーモード</button>
+      <% end %>
+      <p class="menu">どうしようもなく話すのが遅い方の矯正トレーニングです</p>
+      </div>
+    </div>
+  </div>
+
+<footer>
+  <div class="fixed-bottom">
+    <div class ="text-center">
+      <div class="row">
+        <div class="col-md-2 offset-md-3">
+          <%= link_to '利用規約', '#', class:'col-color' %>
+        </div>
+        <div class="col-md-2">
+          <%= link_to 'プライバシーポリシー', '#', class:'col-color' %>
+        </div>
+        <div class="col-md-2">
+          <%= link_to 'お問い合わせ', '#', class:'col-color'%>
+        </div>
+        <div class="col-12">
+          <p><font color = "white">Copyright ©2021. hayakuchi checker</font></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </footer>
+</div>

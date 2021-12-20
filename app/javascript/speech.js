@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function(){
 $(function(){
     window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
     var speech = new webkitSpeechRecognition();
@@ -66,20 +67,23 @@ $(function(){
             var data = { 'fast_talking_score': fast_talking_score,'word_count': word_count, 'talking_time': talking_time };
             $.ajax({
               type: 'POST', // リクエストのタイプ
-              url: '/games/new', // リクエストを送信するURL
+              url: '/games', // リクエストを送信するURL
               data: data, // サーバーに送信するデータ
               dataType: 'json' // サーバーから返却される型
+            }).done(function(result){
+              //console.log(json);
+              //console.log(json.redirect);
+              //console.log(json.data.redirect);
+              if (result.redirect) {
+                window.location.href = result.redirect;
+              }
             })
-         
-            
-            //location.href = '/games/result?' + fast_talking_score + "," + word_count + "," + talking_time;
           })
-        
-      }
+        }
       }
       speech.onerror = function () {
         $("#status").text("計測できませんでした。。");
-       
       }
     });
   });
+}, false);
