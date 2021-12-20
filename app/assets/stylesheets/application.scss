@@ -1,9 +1,9 @@
-@import 'games/new';
-@import 'games/result';
-@import 'trainings/youichi_mode';
-@import 'index';
+@import 'games';
+@import 'trainings';
+@import 'home';
 @import 'bootstrap';
 
+.wf-sawarabimincho { font-family: "Sawarabi Mincho"; }
 /* ↓PC（横幅550px超）の場合 */
 html{
     /* 1rem = 10pxと定義 */
@@ -16,8 +16,15 @@ body{
 h1{
     /* 見出しは大きめの30px、パディングを20px*/
     font-size: 3rem;
-    padding: 2rem;
+    //padding: 2rem;
+    color: white;
 }
+p {
+    font-size: 1.6rem;
+    color: white;
+}
+
+
 
 
 /* ↓スマホ（横幅550px以下）の場合 */

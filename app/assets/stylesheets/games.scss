@@ -1,0 +1,71 @@
+.container {
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("voice.jpg");
+    height: calc(100vh - 134px);
+    background-position: center;
+.game_menu {
+    border-bottom: solid 3px #f4623a;
+}
+.menu{
+    display: inline-block;
+}
+.game_result {
+    font-size: 4rem;
+  
+}
+.result_messages {
+    font-size: 2rem;
+    color: white;
+}
+.result_message {
+    border-bottom: solid 1px #f4623a;
+}
+.image {
+    position:relative;
+}
+.recording {
+    height: 45vh;
+    width: 55vw;
+}
+#status {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+input {
+    width:13%;
+    height:5%;
+    font-size: 3rem;
+}
+
+.result_image {
+    height: 45vh;
+    width: 45vw;
+}
+
+
+
+
+@media screen and (max-width: 550px) {
+    #status {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: #fff;
+    }
+    input {
+        margin:0 auto;
+        width:120px;
+        top: 150px;
+        font-size: 3.8rem;
+    }
+    #image {
+        height: 300px;
+        width: 300px;
+      } 
+    
+}
+}
+

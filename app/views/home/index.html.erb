@@ -1,21 +1,17 @@
-<div class="top-wrapper">
-  <div class="title">
-    <h1>はやくちチェッカー</h1>
-  </div>
-  <div class = "menu">
-    <%= link_to new_game_url, data: {"turbolinks" => false} do %>
-        <p><font color="white">▶︎NEW GAME</font></p>
+<div class="container">
+  <div class="row">
+  <%= render "shared/header" %>
+  <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
+    <h1 class="title wf-sawarabimincho pb-2">はやくちチェッカー</h1>
+    <div class="fake"></div>
+    <hr class="style">
+    <h1 class="subtitle wf-sawarabimincho pt-2">はやくちのはやくちによるはやくちのためのアプリ</h1>
+    <%= link_to games_url, data: {"turbolinks" => false} do %>
+      <button class="btn btn-primary btn-lg mt-5">さっそくはじめる</button>
     <%end%>
-    <%= link_to "#" do %>
-        <p><font color="white">▶︎一般人モード（工事中）</font></p>
-   <% end %>
-   <%= link_to "#" do %>
-        <p><font color="white">▶︎平野レミモード（工事中)</font></p>
-   <% end %>
-   <%= link_to "#" do %>
-        <p><font color="white">▶︎渡辺陽一モード（工事中）</font></p>
-   <% end %>
   </div>
+  </div>
+  
   
   <footer>
   <div class="fixed-bottom">

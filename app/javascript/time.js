@@ -1,4 +1,5 @@
 //ストップウォッチ機能
+document.addEventListener("DOMContentLoaded", function(){
 $(function(){
     reset_timer();
   
@@ -61,3 +62,4 @@ $(function(){
       return hh + ":" + mm + ":" + ss + ":" + ms;
     }
   });
+}, false);

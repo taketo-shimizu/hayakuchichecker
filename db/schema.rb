@@ -10,20 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_12_130703) do
+ActiveRecord::Schema.define(version: 2021_12_19_150255) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "fast_talking_score"
+    t.float "fast_talking_score", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "word_count", null: false
-    t.integer "talking_time", null: false
+    t.float "talking_time", null: false
   end
 
   create_table "trainings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "speaking_smoothry_score"
+    t.integer "speaking_smoothry_score", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "game_id"
+    t.index ["game_id"], name: "index_trainings_on_game_id"
   end
 
+  add_foreign_key "trainings", "games"
 end

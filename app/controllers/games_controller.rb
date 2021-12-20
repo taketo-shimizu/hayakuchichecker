@@ -1,14 +1,22 @@
 class GamesController < ApplicationController
-  def new
-    @game= Game.new(
-      fast_talking_score: params[:fast_talking_score]
-      word_count: params[:word_count]
-      talking_time: params[:talking_time]
+  def index; end
+  
+  def new; end
+
+  def create
+    @game=Game.new(
+      fast_talking_score:params[:fast_talking_score],
+      talking_time:params[:talking_time],
+      word_count:params[:word_count]
     )
     if @game.save
-      redirect_to root_paeh
+      respond_to do |format|
+        format.json { render json: { redirect: game_url(@game) } }
+      end
     end
   end
 
-  def result; end
+  def show
+    @game= Game.find(params[:id])
+  end
 end
