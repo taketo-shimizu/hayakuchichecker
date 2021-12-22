@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", function(){
 $(function(){
   
-  var video=document.getElementById('video');
+  var youichi_video=document.getElementById('youichi_video');
   window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
     var speech = new webkitSpeechRecognition();
     speech.continuous = true;
     speech.interimResults = true;
     speech.lang = 'ja-JP';
 
-    video.addEventListener('play', function(){
+    $("#abtn").on("click", function(){
       $("#training_status").text("計測中・・・");
       setInterval (function() {
         $("#training_status").fadeOut(1000).fadeIn(1000);
       },2000);
       speech.start();
-    }, true);
+    });
    
-    video.addEventListener('ended', function(){
+    $("#bbtn").on("click", function(){
       $("#training_status").text("結果画面へ移ります・・・");
       speech.onresult= function(e){
         speech.stop();
@@ -51,27 +51,25 @@ $(function(){
             console.log("発した文字(ひらがな):", data.converted);
             var training_word = data.converted;
             console.log("発した文字(ひらがな):", training_word);
-            fast_talking_score= $('.fast_talking_score').val();
-            if(gon.fast_talking_score>5.5) {
-              var text = /[やりたいことやってみようぼくがみんなにつたえたいことはねやりたいことがあったらやってみようということやってみるとたのしいんだよやりたいことがあればやってみよういきたいところがあればいってみよう]/g;
-              var found = training_word.match(text);
-              console.log(found);
-              var speaking_smoothry_score= found.length/96*100;
-              console.log("最終点数", speaking_smoothry_score);
-            }else if(gon.fast_talking_score<4.5) {
-              var text_2 = /[ばいとりーだーのゆめひろがりとらひこですおきゃくさまごちゅうもんのほうはいつものやつでいつものえびふらいのそーすをまよねーずにかえてれもんのかわりにすだちをしぼってにんじんをばらのかたちにさえぎってさいごにぜんたいてきにぱせりをふりかけるやつですねちがいますかほっかいどうじゃがばたーころっけでもうしわけございませんごゆっくりどうぞこのおれにとってせんそうのひさんさよりもかんしゃのきもちよりもぜったいにわすれちゃいけないことそれはゆうがたうすぐらくなってからみせのとにあるかんばんのでんきをつけるというさぎょうばいとでめんせつまかされてますさつじんよりもほうかよりもごうとうよりももっともやってはいけないことそれはこうつうひをもらいながらじてんしゃでかようことよやくですかわかりましたいつですからいしゅうのきんようびわかりましたではおまちしてますしーゆーねくすとうぃーくばいばい]/g;
-              var found_2 = training_word.match(text_2);
-              console.log(found_2);
-              var speaking_smoothry_score= found_2.length/390*100;
-              console.log("最終点数", speaking_smoothry_score);
-            }
+            var text = /[やりたいことやってみようぼくがみんなにつたえたいことはねやりたいことがあったらやってみようということやってみるとたのしいんだよやりたいことがあればやってみよういきたいところがあればいってみよう]/g;
+            var found = training_word.match(text);
+            console.log(found);
+            var speaking_smoothry_score= found.length/96*100;
+            console.log("最終点数", speaking_smoothry_score);
             var data = { 'speaking_smoothry_score': speaking_smoothry_score };
             $.ajax({
                 type: 'POST', // リクエストのタイプ
                 url: '/trainings', // リクエストを送信するURL
                 data: data, // サーバーに送信するデータ
                 dataType: 'json' // サーバーから返却される型
-              })
+            }).done(function(result){
+                //console.log(json);
+                //console.log(json.redirect);
+                //console.log(json.data.redirect);
+              if (result.redirect) {
+                window.location.href = result.redirect;
+              }
+            })
                 //.done(function(result){
                 //console.log(json);
                 //console.log(json.redirect);
@@ -86,7 +84,7 @@ $(function(){
       speech.onerror = function () {
         $("#status").text("計測できませんでした。。");
       }
-    }, true);
+    });
  
   });
 }, false);

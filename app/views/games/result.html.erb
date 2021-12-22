@@ -34,12 +34,12 @@
       <div class="training_menu m-3">
         <% if @game.fast_talking_score<4.5 %>
           <p>あなたに適したトレーニングはウーマンラッシュワーモードです<p><br>
-          <%= link_to new_training_path(@game.id), data: {"turbolinks" => false} do %>
+          <%= link_to woman_mode_trainings_path, data: {"turbolinks" => false} do %>
             <button class="btn btn-light btn-primary btn-lg mx-5 mb-5">早速挑戦する</button>
           <% end %>
         <% elsif @game.fast_talking_score>5.5 %>
           <p>あなたに適したトレーニングは渡辺陽一モードです<p>
-          <%= link_to new_training_path(@game.id), data: {"turbolinks" => false} do %>
+          <%= link_to youichi_mode_trainings_path, data: {"turbolinks" => false} do %>
             <button class="btn btn-primary btn-lg mx-5 mb-5">早速挑戦する</button>
           <% end %>
         <% end %>
