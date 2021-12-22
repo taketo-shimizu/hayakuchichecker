@@ -11,12 +11,12 @@ class GamesController < ApplicationController
     )
     if @game.save
       respond_to do |format|
-        format.json { render json: { redirect: game_url(@game) } }
+        format.json { render json: { redirect: result_game_url(@game) } }
       end
     end
   end
 
-  def show
+  def result
     @game= Game.find(params[:id])
   end
 end

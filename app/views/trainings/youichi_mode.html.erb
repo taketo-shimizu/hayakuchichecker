@@ -5,29 +5,20 @@
     <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
       <h1>このトレーニングについて</h1>
       <div class="fake mb-5"></div>
-      <% if @game.fast_talking_score>5.5 %>
         <p class= "mb-3">あなたは相当の早口で荒療治が必要です<br>
           これから渡辺陽一の音声がフリースタイルのビートに乗って流れます<br>
           カラオケの要領で口に出して話してみましょう<br>
           滑舌のテストもしているので気をつけてください<br>
           ※動画を途中で停止させないでください
         </p>
-        <%= video_tag("/movies/youichi.mp4",controls: :true, class: 'video-content pb-3', id:'video') %>
-      <% elsif @game.fast_talking_score<4.5 %>
-        <p class= "mb-3">あなたはかなりゆっくり話しており荒療治が必要です<br>
-        これからウーマンラッシュアワーの漫才の音声がフリースタイルのビートに乗って流れます<br>
-        カラオケの要領で口に出して話してみましょう<br>
-        滑舌のテストもしているので気をつけてください<br>
-        ※動画を途中で停止させないでください<br>
-        ※かなりハイスピードなので心してください
-        </p>
-        <%= video_tag("/movies/woman.mp4",controls: :true, class: 'video-content pb-3', id:'video') %>
-        
-      <% end %>
+        <p id="abtn">a</p>
+        <p id="bbtn">b</p>
+        <%= video_tag("/movies/youichi.mp4",controls: :true, class: 'video-content pb-3', id:'youichi_video') %>
       <div class="training_border mb-3"></div>
       <p id="training_status">動画の再生と同時に計測スタートです</p>
       <div class="training_border mt-3 mb-5"></div>
     </div>
+  
   </div>
   
   <footer>

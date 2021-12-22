@@ -1,0 +1,73 @@
+<% content_for(:title, 'トレーニング結果') %>
+<div class="container">
+  <div class="row">
+  <%= render "shared/header" %>
+    <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
+      <h1 class="game_result mb-5">計測お疲れ様でした!</h1>
+      <% if request.referer&.include?("/trainings/woman_mode") %>
+        <div class= "result_messages">
+          <% if @training.speaking_smoothry_score>60 %>
+            <div class= "result_message">おめでとうございます! あなたは全体の<%= @training.speaking_smoothry_score %>%を滑舌良く話せていました!</div>
+            速く話す癖が少し身についたのではないでしょうか?<br>
+            滑舌も速さと同様繰り返し練習することで向上していくので<br>
+            また挑戦してみてくださいね!
+          <% elsif @training.speaking_smoothry_score<60 %>
+            <div class= "result_message">残念...あなたは全体の<%= @training.speaking_smoothry_score %>%だけしか滑舌良く話せていませんでした...</div>
+            速すぎてついていけなかったですかね?<br>
+            滑舌も速さと同様繰り返し練習することで向上していくので<br>
+            また挑戦してみてくださいね!
+          <% end %>
+        </div>
+      <% elsif request.referer&.include?("/trainings/youichi_mode") %>
+        <div class= "result_messages">
+          <% if @training.speaking_smoothry_score>60 %>
+            <div class= "result_message">おめでとうございます! あなたは全体の<%= @training.speaking_smoothry_score %>%を滑舌良く話せていました!</div>
+            ゆっくり話す癖が少し身についたのではないでしょうか?<br>
+            滑舌も速さと同様繰り返し練習することで向上していくので<br>
+            また挑戦してみてくださいね!
+          <% elsif @training.speaking_smoothry_score<60 %>
+            <div class= "result_message">残念...あなたは全体の<%= @training.speaking_smoothry_score %>%だけしか滑舌良く話せていませんでした...</div>
+            この遅さでこの点数はかなりまずいです...<br>
+            滑舌も速さと同様繰り返し練習することで向上していくので<br>
+            また挑戦してみてくださいね!
+          <% end %>
+        </div>
+      <%end%>
+      <div class="training_menu m-5">
+          <% if request.referer&.include?("/trainings/woman_mode") %>
+            <%= link_to woman_mode_trainings_path, data: {"turbolinks" => false} do %>
+              <button class="btn btn-primary btn-lg m-5">もう一度挑戦する</button>
+            <% end %>
+          <% elsif request.referer&.include?("/trainings/youichi_mode") %>
+            <%= link_to youichi_mode_trainings_path, data: {"turbolinks" => false} do %>
+              <button class="btn btn-primary btn-lg m-5">もう一度挑戦する</button>
+            <% end %>
+          <% end %>
+        
+          <%= link_to root_path do %>
+          <button class="btn btn-primary btn-lg m-5">トップページへ</button>
+          <% end %>
+      </div>
+    </div>
+  </div>
+<footer>
+  <div class="fixed-bottom">
+    <div class ="text-center">
+      <div class="row">
+        <div class="col-md-2 offset-md-3">
+          <%= link_to '利用規約', '#', class:'col-color' %>
+        </div>
+        <div class="col-md-2">
+          <%= link_to 'プライバシーポリシー', '#', class:'col-color' %>
+        </div>
+        <div class="col-md-2">
+          <%= link_to 'お問い合わせ', '#', class:'col-color'%>
+        </div>
+        <div class="col-12">
+          <p><font color = "white">Copyright ©2021. hayakuchi checker</font></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
