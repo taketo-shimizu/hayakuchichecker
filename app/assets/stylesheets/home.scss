@@ -1,16 +1,25 @@
+.top-wrapper {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("voice.jpg");
+  background-size: cover;
+  background-position: center;
+.privacy_policy {
+  margin-top: 70px;
+  
+}
+}
 .container {
-    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("voice.jpg");
-    background-size:cover;
-    background-position: center;
-    height: 100vh;
-    width: 100%;
+  position: relative;
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("voice.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  min-width: 100%;
 
 .title {
     font-size: 5rem;
     color: white;
     //padding-bottom: 1rem;
-    
-   
 }
 
 .fake {
@@ -23,47 +32,6 @@
     //padding-top: 1rem;
     //margin: 1.5rem;
     color: white;
-  
-}
-
-
-/*.border-bottom {
-    /*height: 0.2rem;
-    max-width: 6rem;
-    margin: 1.5rem auto;
-    color: #f4623a;
-    opacity: 1;
-}*/
-  
-  
-/*@keyframes flicker {
-    0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        text-shadow:
-        0 0 4px #bb62bb,
-        0 0 11px #bb62bb,
-        0 0 19px #bb62bb,
-        0 0 40px rgb(255, 0, 255),
-        0 0 80px rgb(255, 0, 255),
-        0 0 90px rgb(255, 0, 255),
-        0 0 100px rgb(255, 0, 255),
-        0 0 150px rgb(255, 0, 255);
-    }
-    20%, 24%, 55% {
-        text-shadow: none;
-    }
-  }*/
-
-
-/*.menu {
-    position: absolute;
-    left: 44%;
-    top: 60%;
-    font-weight: bold;
-}*/
-
-.col-color {
-    color :white;
-  
 }
 
 .btn{
