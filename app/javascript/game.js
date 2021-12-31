@@ -6,6 +6,9 @@ $(function(){
     speech.interimResults = true;
     speech.lang = 'ja-JP';
     const content = document.getElementById('content');
+
+    var mediaRecorder;
+    var localStream;
     
     $("#start_btn").on("click", function(){
       //音声認識を開始
@@ -16,6 +19,15 @@ $(function(){
       setInterval (function() {
         $("#status").fadeOut(1000).fadeIn(1000);
       },2000);
+      navigator.mediaDevices.getUserMedia({audio: true })
+        .then(function (stream) {
+            localStream = stream;
+            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder.start();
+            console.log("Status: " + mediaRecorder.state);
+        }).catch(function (err) {
+            console.log(err);
+        });
     });
         
     $("#stop_btn").on("click", function(){
@@ -64,20 +76,50 @@ $(function(){
             console.log("発した文字数:", word_count);
             var fast_talking_score = word_count/talking_time;
             console.log("1秒あたりの文字数", fast_talking_score);
-            var data = { 'fast_talking_score': fast_talking_score,'word_count': word_count, 'talking_time': talking_time };
-            $.ajax({
-              type: 'POST', // リクエストのタイプ
-              url: '/games', // リクエストを送信するURL
-              data: data, // サーバーに送信するデータ
-              dataType: 'json' // サーバーから返却される型
-            }).done(function(result){
-              //console.log(json);
-              //console.log(json.redirect);
-              //console.log(json.data.redirect);
-              if (result.redirect) {
-                window.location.href = result.redirect;
-              }
-            })
+            mediaRecorder.stop()
+            console.log("Status: " + mediaRecorder.state);
+            mediaRecorder.ondataavailable = function (event) {
+                //document.getElementById("audio").src =
+                //let blob = new Blob([event.data], { type: event.data.type });
+                var audio = document.createElement('audio');
+                audio.controls = true;
+                var chunks = [];
+                chunks.push(event.data);
+                var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+                console.log(blob);
+                var fd = new FormData;
+                fd.append("audio", blob);
+                fd.append("fast_talking_score", fast_talking_score);
+                fd.append("word_count",word_count);
+                fd.append("talking_time", talking_time);
+                //var data = { 'fast_talking_score': fast_talking_score,'word_count': word_count, 'talking_time': talking_time};
+                  $.ajax({
+                    type: 'POST', // リクエストのタイプ
+                    url: '/games', // リクエストを送信するURL
+                    data: fd,
+                    // サーバーに送信するデータ
+                  // サーバーから返却される型
+                    processData: false,
+                    contentType: false
+                  }).done(function(result){
+                    //console.log(json);
+                    //console.log(json.redirect);
+                    //console.log(json.data.redirect);
+                    
+                      if (result.redirect) {
+                        window.location.href = result.redirect;
+                      }
+                   
+                  })
+                //
+                
+                //const audioElement = document.querySelector("audio");
+               //audioElement.playbackRate = 1.5;
+                //var voice= event.data;
+            
+            
+            }
+            localStream.getTracks().forEach(track => track.stop());
           })
         }
       }

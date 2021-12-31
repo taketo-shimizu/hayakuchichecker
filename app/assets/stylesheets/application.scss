@@ -12,6 +12,8 @@ html{
 body{
     /*基本のフォントサイズは16px */
     font-size: 1.6rem;
+    color: white;
+   
 }
 h1{
     /* 見出しは大きめの30px、パディングを20px*/
@@ -19,9 +21,17 @@ h1{
     //padding: 2rem;
     color: white;
 }
+h2{
+    font-size: 2rem;
+    color: white;
+}
 p {
     font-size: 1.6rem;
     color: white;
+}
+.col-color {
+    color :white;
+  
 }
 
 

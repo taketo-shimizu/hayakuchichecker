@@ -1,9 +1,10 @@
 <% content_for(:title, '結果画面') %>
 <div class="container">
   <div class="row">
-  <%= render "shared/header" %>
     <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
       <h1 class="game_result mb-4">計測お疲れ様でした!</h1>
+     
+   
       <div class= "result_messages">
         <% if @game.fast_talking_score<=5.5 && @game.fast_talking_score>=4.5 %>
           <div class= "result_message">計測結果: <%= @game.talking_time %>秒間に<%= @game.word_count %>文字発しました(1秒間に<%= @game.fast_talking_score %>文字のペース)</div>
@@ -47,28 +48,17 @@
           <button class="btn btn-primary btn-lg mx-5 mb-5">再計測する</button>
         <% end %>
       </div>
+      
     </div>
   </div>
-<footer>
-  <div class="fixed-bottom">
-    <div class ="text-center">
-      <div class="row">
-        <div class="col-md-2 offset-md-3">
-          <%= link_to '利用規約', '#', class:'col-color' %>
-        </div>
-        <div class="col-md-2">
-          <%= link_to 'プライバシーポリシー', '#', class:'col-color' %>
-        </div>
-        <div class="col-md-2">
-          <%= link_to 'お問い合わせ', '#', class:'col-color'%>
-        </div>
-        <div class="col-12">
-          <p><font color = "white">Copyright ©2021. hayakuchi checker</font></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 </div>
 
+<script>
 
+
+document.getElementById("audio").src== window.URL.createObjectURL(gon.voice);
+
+
+
+
+</script>

@@ -1,7 +1,10 @@
 .container {
+    position: relative;
     background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("voice.jpg");
-    height: calc(100vh - 134px);
+    background-size: cover;
     background-position: center;
+    height: 100vh;
+    min-width: 100%;
 .game_menu {
     border-bottom: solid 3px #f4623a;
 }
@@ -33,7 +36,7 @@
     transform: translate(-50%,-50%);
     color: white;
 }
-input {
+.form-control {
     width:13%;
     height:5%;
     font-size: 3rem;

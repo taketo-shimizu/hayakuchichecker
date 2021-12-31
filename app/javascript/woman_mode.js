@@ -8,15 +8,15 @@ document.addEventListener("DOMContentLoaded", function(){
       speech.interimResults = true;
       speech.lang = 'ja-JP';
   
-      $("#abtn").on("click", function(){
+      woman_video.addEventListener('play', function(){
         $("#training_status").text("計測中・・・");
         setInterval (function() {
           $("#training_status").fadeOut(1000).fadeIn(1000);
         },2000);
         speech.start();
-      });
+      }, true);
      
-      $("#bbtn").on("click", function(){
+      woman_video.addEventListener('play', function(){
         $("#training_status").text("結果画面へ移ります・・・");
         speech.onresult= function(e){
           speech.stop();
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function(){
         speech.onerror = function () {
           $("#status").text("計測できませんでした。。");
         }
-      });
+      }, true);
    
     });
   }, false);
