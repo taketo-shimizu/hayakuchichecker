@@ -5,7 +5,11 @@ class VoiceUploader < CarrierWave::Uploader::Base
   include CarrierWave::Audio
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  if Rails.env.production?
+    storage :fog # 本番環境のみ
+  else
+    storage :file # 本番環境以外
+  end
   # storage :fog
 
  
