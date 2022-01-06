@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_29_014217) do
+ActiveRecord::Schema.define(version: 2022_01_04_050139) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.float "fast_talking_score", null: false
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_014217) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "word_count", null: false
     t.float "talking_time", null: false
-    t.text "voice", null: false
+    t.string "voice", null: false
   end
 
   create_table "trainings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
