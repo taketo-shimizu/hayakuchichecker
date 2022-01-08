@@ -10,7 +10,7 @@ CarrierWave.configure do |config|
     provider: 'AWS',
     aws_access_key_id: 'AKIASUNZBZSNNU6BZEN4',
     aws_secret_access_key: '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',
-    region: 'ap-northeast-1',
+    region: 'ap-northeast-3',
     path_style: true
   }
 
