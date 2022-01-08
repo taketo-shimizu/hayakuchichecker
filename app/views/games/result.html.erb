@@ -3,7 +3,7 @@
   <div class="row">
     <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
       <h1 class="game_result mb-4">計測お疲れ様でした!</h1>
-      <%=audio_tag("#{@game.voice.url}", controls: true) %>
+      <%=audio_tag("#{@game.voice_data.url}", controls: true) %>
    
       <div class= "result_messages">
         <% if @game.fast_talking_score<=5.5 && @game.fast_talking_score>=4.5 %>

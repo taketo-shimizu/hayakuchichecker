@@ -11,7 +11,7 @@ class GamesController < ApplicationController
       fast_talking_score:params[:fast_talking_score],
       talking_time:params[:talking_time],
       word_count:params[:word_count],
-      voice:params[:voice_data]
+      voice_data:params[:voice_data]
     )
     
     if @game.save
