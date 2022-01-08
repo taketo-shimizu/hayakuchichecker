@@ -147,7 +147,7 @@ $(function(){
               
               
               var fd = new FormData;
-                fd.append('voice_data', voicefile, 'voice.wav');
+                fd.append('voice_data', event.data);
                 fd.append("fast_talking_score", fast_talking_score);
                 fd.append("word_count",word_count);
                 fd.append("talking_time", talking_time);
