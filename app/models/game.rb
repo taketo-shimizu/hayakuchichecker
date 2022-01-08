@@ -3,5 +3,5 @@ class Game < ApplicationRecord
   validates :talking_time, presence: true, numericality: true
   validates :word_count, presence: true
   has_many :trainings
-  mount_uploader :voice, VoiceUploader
+  mount_uploader :voice_data, VoiceUploader
 end
