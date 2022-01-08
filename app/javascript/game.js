@@ -126,7 +126,7 @@ $(function(){
             console.log("Status: " + mediaRecorder.state);
             mediaRecorder.ondataavailable = function (event) {
 
-              let blob = new Blob([event.data], { type: "audio/wav" });
+              /*let blob = new Blob([event.data], { type: "audio/wav" });
               var audio = document.createElement('audio');
               audio.controls = false;
               const audioURL = window.URL.createObjectURL(blob);
@@ -143,7 +143,7 @@ $(function(){
               for (let i = 0; i < bin.length; i++) {
               buffer[i] = bin.charCodeAt(i);
               }
-              let voicefile = new File([buffer.buffer], bin, {type: "audio/wav"});
+              let voicefile = new File([buffer.buffer], bin, {type: "audio/wav"});*/
               
               
               var fd = new FormData;
