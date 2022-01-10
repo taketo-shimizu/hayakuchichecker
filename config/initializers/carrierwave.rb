@@ -9,8 +9,8 @@ CarrierWave.configure do |config|
     config.fog_directory  = 'hayakuchi-checker'
     config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: 'AKIASUNZBZSNNAZCZBMP',
-      aws_secret_access_key: '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',
+      aws_access_key_id: 'AKIASUNZBZSND245IUVF',
+      aws_secret_access_key: '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',
       region: 'ap-northeast-1',
       path_style: true
     }
