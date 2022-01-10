@@ -6,11 +6,11 @@ CarrierWave.configure do |config|
   if Rails.env.production?
     config.storage :fog
     config.fog_provider = 'fog/aws'
-    config.fog_directory  = 'hayakuchi-checker'
+    config.fog_directory  = 'hayakuchichecker'
     config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: 'AKIASUNZBZSND245IUVF',
-      aws_secret_access_key: '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',
+      aws_access_key_id: 'AKIASUNZBZSNKMXDW3B4',
+      aws_secret_access_key: '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',
       region: 'ap-northeast-1',
       path_style: true
     }
