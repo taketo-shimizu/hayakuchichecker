@@ -16,8 +16,14 @@ document.addEventListener("DOMContentLoaded", function(){
         speech.start();
       }, true);
      
-      woman_video.addEventListener('play', function(){
+      woman_video.addEventListener('ended', function(){
         $("#training_status").text("結果画面へ移ります・・・");
+        speech.onerror = function () {
+          $("#training_status").text("計測できませんでした。。");
+          setTimeout(function(){
+          location.reload();
+          }, 3*1000);
+        }
         speech.onresult= function(e){
           speech.stop();
           if(e.results[0].isFinal){
@@ -81,9 +87,6 @@ document.addEventListener("DOMContentLoaded", function(){
                 //})
             })
           }
-        }
-        speech.onerror = function () {
-          $("#status").text("計測できませんでした。。");
         }
       }, true);
    

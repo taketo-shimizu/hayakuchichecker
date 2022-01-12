@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("@fortawesome/fontawesome-free");
+import '@fortawesome/fontawesome-free/js/all';
 require('game.js')
 require('youichi_mode.js')
 require('woman_mode.js')
