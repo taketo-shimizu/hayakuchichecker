@@ -1,9 +1,9 @@
 class TrainingsController < ApplicationController
-  def youichi_mode
+  def high_slow_mode
    
   end
 
-  def woman_mode
+  def high_speed_mode
   end
 
   def create

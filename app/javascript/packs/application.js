@@ -11,8 +11,8 @@ require("jquery")
 require("@fortawesome/fontawesome-free");
 import '@fortawesome/fontawesome-free/js/all';
 require('game.js')
-require('youichi_mode.js')
-require('woman_mode.js')
+require('high_slow_mode.js')
+require('high_speed_mode.js')
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
