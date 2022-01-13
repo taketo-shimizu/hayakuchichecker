@@ -22,7 +22,7 @@ $(function(){
     var rNo = Math.floor(Math.random() * target.length);
     target[rNo].style.display = "block";
 
-    mike_check.onclick = function() {
+    $("#mike_check").on("click", function(){
       // getUserMedia
       if (!stream) {
           // getUserMediaはpromise を返す
@@ -46,7 +46,7 @@ $(function(){
       start_btn.style.display = "inline-block";
       stop_btn.style.display = "inline-block";
   
-    };
+    });
     
     $("#start_btn").on("click", function(){
       //音声認識を開始
@@ -65,7 +65,7 @@ $(function(){
             console.log("Status: " + mediaRecorder.state);
         }).catch(function (err) {
             console.log(err);
-        });
+        })
     });
         
     $("#stop_btn").on("click", function(){
