@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :trainings, only: %i[new create] do
     collection do
-      get :youichi_mode
-      get :woman_mode
+      get :high_speed_mode
+      get :high_slow_mode
     end
     member do
       get :result

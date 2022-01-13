@@ -36,12 +36,12 @@
       <div class="training_menu m-3">
         <% if @game.fast_talking_score<4.5 %>
           <p>超早口モードで速く話すトレーニングをしてみませんか？<p><br>
-          <%= link_to woman_mode_trainings_path, data: {"turbolinks" => false} do %>
+          <%= link_to high_speed_mode_trainings_path, data: {"turbolinks" => false} do %>
             <button class="btn btn-light btn-primary btn-lg mx-5 mb-5">早速挑戦する</button>
           <% end %>
         <% elsif @game.fast_talking_score>5.5 %>
           <p>超ゆっくりモードでゆっくり話すトレーニングをしてみませんか？<p>
-          <%= link_to youichi_mode_trainings_path, data: {"turbolinks" => false} do %>
+          <%= link_to high_slow_mode_trainings_path, data: {"turbolinks" => false} do %>
             <button class="btn btn-primary btn-lg mx-5 mb-5">早速挑戦する</button>
           <% end %>
         <% end %>

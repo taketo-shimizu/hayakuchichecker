@@ -3,7 +3,7 @@
   <div class="row">
     <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
       <h1 class="game_result mb-5">計測お疲れ様でした!</h1>
-      <% if request.referer&.include?("/trainings/woman_mode") %>
+      <% if request.referer&.include?("/trainings/high_speed_mode") %>
         <div class= "result_messages">
           <% if @training.speaking_smoothry_score>60 %>
             <div class= "result_message">おめでとうございます! あなたは全体の<%= @training.speaking_smoothry_score %>%を滑舌良く話せていました!</div>
@@ -17,7 +17,7 @@
             また挑戦してみてくださいね!
           <% end %>
         </div>
-      <% elsif request.referer&.include?("/trainings/youichi_mode") %>
+      <% elsif request.referer&.include?("/trainings/high_slow_mode") %>
         <div class= "result_messages">
           <% if @training.speaking_smoothry_score>60 %>
             <div class= "result_message">おめでとうございます! あなたは全体の<%= @training.speaking_smoothry_score %>%を滑舌良く話せていました!</div>
@@ -33,12 +33,12 @@
         </div>
       <%end%>
       <div class="training_menu m-5">
-          <% if request.referer&.include?("/trainings/woman_mode") %>
-            <%= link_to woman_mode_trainings_path, data: {"turbolinks" => false} do %>
+          <% if request.referer&.include?("/trainings/high_speed_mode") %>
+            <%= link_to high_speed_mode_trainings_path, data: {"turbolinks" => false} do %>
               <button class="btn btn-primary btn-lg m-5">もう一度挑戦する</button>
             <% end %>
-          <% elsif request.referer&.include?("/trainings/youichi_mode") %>
-            <%= link_to youichi_mode_trainings_path, data: {"turbolinks" => false} do %>
+          <% elsif request.referer&.include?("/trainings/high_slow_mode") %>
+            <%= link_to high_slow_mode_trainings_path, data: {"turbolinks" => false} do %>
               <button class="btn btn-primary btn-lg m-5">もう一度挑戦する</button>
             <% end %>
           <% end %>
