@@ -12,7 +12,6 @@
     </script>
   
     <title><%= page_title(yield(:title)) %></title>
-    <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -24,6 +23,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <%= favicon_link_tag('favicon.jpg') %>
     <%= include_gon %>
+
+    <%= display_meta_tags(default_meta_tags) %>
   </head>
 
   <body>
