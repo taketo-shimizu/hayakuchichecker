@@ -48,7 +48,13 @@
           <button class="btn btn-primary btn-lg mx-5 mb-5">再計測する</button>
         <% end %>
       </div>
-      
+      <% if @game.fast_talking_score<=5.5 && @game.fast_talking_score>=4.5 %>
+        <%= link_to 'Twitterでシェア', "https://twitter.com/share?url=#{request.url}%0a&text=測定結果：理想的な速さで話せています。繰り返し練習して体に刻み込みましょう！%0a&hashtags=はやくち測定アプリ",class: 'btn btn-primary btn-lg d-flex align-items-center justify-content-center', title: 'Twitter', target: '_blank' %>
+      <% elsif @game.fast_talking_score<4.5 %>
+        <%= link_to 'Twitterでシェア', "https://twitter.com/share?url=#{request.url}%0a&text=測定結果：話すのがかなり遅いです・・・繰り返し練習して改善しましょう！%0a&hashtags=はやくち測定アプリ",class: 'btn btn-primary btn-lg d-flex align-items-center justify-content-center', title: 'Twitter', target: '_blank' %>
+      <% elsif @game.fast_talking_score>5.5 %>
+        <%= link_to 'Twitterでシェア', "https://twitter.com/share?url=#{request.url}%0a&text=測定結果：話すのがかなり早いです・・・繰り返し練習して改善しましょう！%0a&hashtags=はやくち測定アプリ",class: 'btn btn-primary btn-lg d-flex align-items-center justify-content-center', title: 'Twitter', target: '_blank' %>
+      <% end %>
     </div>
   </div>
 </div>

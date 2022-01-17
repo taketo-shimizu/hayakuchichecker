@@ -1,13 +1,49 @@
 <div class="container">
   <div class="row">
-  <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
-    <h1 class="title wf-sawarabimincho pb-2">はやくちチェッカー</h1>
-    <div class="fake"></div>
-    <hr class="style">
-    <h1 class="subtitle wf-sawarabimincho pt-2">はやくちのはやくちによるはやくちのためのアプリ</h1>
-    <%= link_to games_url, data: {"turbolinks" => false} do %>
-      <button class="btn btn-primary btn-lg mt-5">さっそくはじめる</button>
-    <%end%>
-  </div>
+    <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center">
+      <h1 class="title wf-sawarabimincho pb-2">はやくちチェッカー</h1>
+      <div class="fake"></div>
+      <hr class="style">
+      <h1 class="subtitle wf-sawarabimincho pt-2">はやくちのはやくちによるはやくちのためのアプリ</h1>
+      <button type="button" class="btn btn-primary btn-lg mt-5" data-toggle="modal" data-target="#exampleModalCentered">さっそくはじめる</button>
+      <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true" style="color:#000000;">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenteredLabel">注意事項</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ul>
+              <li>
+                このアプリは、PCでのみ利用可能です。<br/>
+                現時点で、スマートフォンからはご利用いただけません。<br>
+                （※近日中の対応を予定しております）
+              </li>
+              <li>
+                  推奨ブラウザは以下の通りです。
+                <ul>
+                  <li>Windowsの場合：Google Chrome，Microsoft Edge（※Internet Explolerでは利用不可）</li>
+                  <li>macOSの場合：Google Chrome，Safari</li>
+                </ul>
+              </li>
+              <li>このアプリでは、マイクを使用します。周囲の環境には十分ご配慮ください。</li>
+              <li>
+                アプリを開始した時点で、
+                利用規約、プライバシーポリシーに同意頂いたものとみなします。
+              </li>
+            </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">閉じる</button>
+              <%= link_to "了解！", games_path, class:"btn btn-primary btn-lg d-flex align-items-center justify-content-center" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

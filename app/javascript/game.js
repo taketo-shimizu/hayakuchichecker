@@ -161,7 +161,7 @@ $(function(){
                     if (result.redirect) {
                       setTimeout(function(){
                       window.location.href = result.redirect;
-                      }, 5*1000);
+                      }, 3*1000);
                     }
                   })
           
