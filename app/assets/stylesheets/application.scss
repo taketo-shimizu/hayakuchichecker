@@ -34,6 +34,15 @@ p {
   
 }
 
+ //本番環境でbody要素のサイズが適用されないので個別に設定
+footer {
+    font-size: 1.6rem;
+}
+
+.modal {
+    font-size: 1.6rem;
+}
+
 
 
 
