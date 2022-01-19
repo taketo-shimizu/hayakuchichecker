@@ -7,6 +7,36 @@ $(function(){
     speech.continuous = true;
     speech.interimResults = true;
     speech.lang = 'ja-JP';
+    
+    let stream = null;
+    var mediaRecorder;
+    var localStream;
+    $("#mike_check").on("click", function(){
+      // getUserMedia
+      if (!stream) {
+          // getUserMediaはpromise を返す
+          navigator.mediaDevices.getUserMedia({
+              video: false,
+              audio: true
+          })
+              .then(function (audio) { // promiseのresultをaudioStreamに格納
+                  stream = audio;
+                  console.log('録音に対応しています');
+                 
+                  //mike_check.style.display = "none";
+                  $('#mike_check').css('display', 'none');
+                  return stream
+              })
+              .catch(function (error) { // error
+                  console.error('mediaDevice.getUserMedia() error:', error);
+                  return;
+              });
+      }
+      $("#youichi_video").css("display", "block")
+      $('#training_status').css('display', 'block');
+      $('.training_border').css('display', 'block');
+  
+    });
 
     youichi_video.addEventListener('play', function(){
       $("#training_status").text("計測中・・・");

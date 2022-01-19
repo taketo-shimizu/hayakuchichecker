@@ -9,9 +9,6 @@ $(function(){
     const start_btn = document.getElementById("start_btn")
     const stop_btn = document.getElementById("stop_btn")
 
-    
-    stop_btn.style.display = "none";
-    start_btn.style.display = "none";
     let stream = null;
 
     var mediaRecorder;
@@ -34,7 +31,8 @@ $(function(){
                   stream = audio;
                   console.log('録音に対応しています');
                  
-                  mike_check.style.display = "none";
+                  //mike_check.style.display = "none";
+                  $('#mike_check').css('display', 'none');
                   return stream
               })
               .catch(function (error) { // error
@@ -43,8 +41,10 @@ $(function(){
               });
       }
      
-      start_btn.style.display = "inline-block";
-      stop_btn.style.display = "inline-block";
+      //start_btn.style.display = "inline-block";
+      //stop_btn.style.display = "inline-block";
+      $('#start_btn').css('display', 'inline-block');
+      $('#stop_btn').css('display', 'inline-block');
   
     });
     

@@ -10,10 +10,11 @@
           滑舌のテストもしているので気をつけてください<br>
           ※動画を途中で停止させないでください
         </p>
-        <%= video_tag("/movies/youichi.mp4",controls: :true, class: 'video-content pb-3', id:'youichi_video') %>
-      <div class="training_border mb-3"></div>
-      <p id="training_status">動画の再生と同時に計測スタートです</p>
-      <div class="training_border mt-3 mb-5"></div>
+        <%= video_tag("/movies/youichi.mp4",controls: :true, class: 'video-content pb-3', id:'youichi_video', style:'display: none;') %>
+      <div class="training_border mb-3" style="display: none;"></div>
+      <button class = "btn btn-primary btn-lg m-5" id="mike_check" style="display: block;" >マイクチェック</button>
+      <p id="training_status" style="display: none;" >動画の再生と同時に計測スタートです</p>
+      <div class="training_border mt-3 mb-5" style="display: none;"></div>
     </div>
   
   </div>

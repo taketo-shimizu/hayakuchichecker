@@ -3,17 +3,17 @@
     <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
       <h1 class="game_result mb-4">計測お疲れ様でした!</h1>
       <div class= "result_messages">
-        <% if @game.fast_talking_score<=5.5 && @game.fast_talking_score>=4.5 %>
+        <% if @game.fast_talking_score<=6 && @game.fast_talking_score>=4 %>
           <div class= "result_message">計測結果: <%= @game.talking_time %>秒間に<%= @game.word_count %>文字発しました(1秒間に<%= @game.fast_talking_score %>文字のペース)</div>
           理想のペースは1秒間に5文字です<br>
           あなたの話す速度は理想のペースに近いです<br>
           繰り返し練習することで体に速度を焼き付けましょう!
-        <% elsif @game.fast_talking_score<4.5 %>
+        <% elsif @game.fast_talking_score<4 %>
           <div class= "result_message">計測結果: <%= @game.talking_time %>秒間に<%= @game.word_count %>文字発しました(1秒間に<%= @game.fast_talking_score %>文字のペース)</div>
           理想のペースは1秒間に5文字です<br>
           残念ながらあなたの速度はかなり遅いです・・・<br>
           話す速度が遅すぎると相手にのんびりとした印象を与えてしまいます
-        <% elsif @game.fast_talking_score>5.5 %>
+        <% elsif @game.fast_talking_score>6 %>
         <div class= "result_message">計測結果: <%= @game.talking_time %>秒間に<%= @game.word_count %>文字発しました(1秒間に<%= @game.fast_talking_score %>文字のペース)</div>
           理想のペースは1秒間に5文字です<br>
           残念ながらあなたはかなりの早口です・・・<br>
@@ -49,11 +49,11 @@
         <% end %>
       </div>
       <% if @game.fast_talking_score<=5.5 && @game.fast_talking_score>=4.5 %>
-        <%= link_to 'Twitterでシェア', "https://twitter.com/share?url=#{"https://www.hayakuchichecker.com/games/new"}%0a&text=測定結果：理想的な速さで話せています。繰り返し練習して体に刻み込みましょう！%0a&hashtags=はやくち測定アプリ",class: 'btn btn-primary btn-lg d-flex align-items-center justify-content-center', title: 'Twitter', target: '_blank' %>
+        <%= link_to 'Twitterでシェア', "https://twitter.com/share?url=#{request.url}%0a&text=測定結果：理想的な速さで話せています。繰り返し練習して体に刻み込みましょう！%0a&hashtags=はやくち測定アプリ",class: 'btn btn-primary btn-lg d-flex align-items-center justify-content-center', title: 'Twitter', target: '_blank' %>
       <% elsif @game.fast_talking_score<4.5 %>
-        <%= link_to 'Twitterでシェア', "https://twitter.com/share?url=#{"https://www.hayakuchichecker.com/games/new"}%0a&text=測定結果：話すのがかなり遅いです・・・繰り返し練習して改善しましょう！%0a&hashtags=はやくち測定アプリ",class: 'btn btn-primary btn-lg d-flex align-items-center justify-content-center', title: 'Twitter', target: '_blank' %>
+        <%= link_to 'Twitterでシェア', "https://twitter.com/share?url=#{request.url}%0a&text=測定結果：話すのがかなり遅いです・・・繰り返し練習して改善しましょう！%0a&hashtags=はやくち測定アプリ",class: 'btn btn-primary btn-lg d-flex align-items-center justify-content-center', title: 'Twitter', target: '_blank' %>
       <% elsif @game.fast_talking_score>5.5 %>
-        <%= link_to 'Twitterでシェア', "https://twitter.com/share?url=#{"https://www.hayakuchichecker.com/games/new"}%0a&text=測定結果：話すのがかなり早いです・・・繰り返し練習して改善しましょう！%0a&hashtags=はやくち測定アプリ",class: 'btn btn-primary btn-lg d-flex align-items-center justify-content-center', title: 'Twitter', target: '_blank' %>
+        <%= link_to 'Twitterでシェア', "https://twitter.com/share?url=#{request.url}%0a&text=測定結果：話すのがかなり早いです・・・繰り返し練習して改善しましょう！%0a&hashtags=はやくち測定アプリ",class: 'btn btn-primary btn-lg d-flex align-items-center justify-content-center', title: 'Twitter', target: '_blank' %>
       <% end %>
     </div>
   </div>
