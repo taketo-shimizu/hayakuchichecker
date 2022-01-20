@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function(){
           speech.stop();
           if(e.results[0].isFinal){
             var autotext = e.results[0][0].transcript
+            $("#training_status").text(autotext);
             console.log("発した文字", autotext);
             var data = {
               //gooラボ ひらがな化API
@@ -88,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function(){
               console.log("発した文字(ひらがな):", data.converted);
               var training_word = data.converted;
               console.log("発した文字(ひらがな):", training_word);
-              var text_2 = /[ばいとりーだーのゆめひろがりとらひこですおきゃくさまごちゅうもんのほうはいつものやつでいつものえびふらいのそーすをまよねーずにかえてれもんのかわりにすだちをしぼってにんじんをばらのかたちにさえぎってさいごにぜんたいてきにぱせりをふりかけるやつですねちがいますかほっかいどうじゃがばたーころっけでもうしわけございませんごゆっくりどうぞさつじんよりもほうかよりもごうとうよりももっともやってはいけないことそれはこうつうひをもらいながらじてんしゃでかようことよやくですかわかりましたいつですからいしゅうのきんようびわかりましたではおまちしてますしーゆーねくすとうぃーくばいばい]/g;
+              var text_2 = /[ばいとりーだーのゆめひろがりとらひこですおきゃくさまごちゅうもんのほうはいつものやつでいつものえびふらいのそーすをまよねーずにかえてれもんのかわりにすだちをしぼってにんじんをばらのかたちにさえぎってさいごにぜんたいてきにぱせりをふりかけるやつですねちがいますかほっかいどうじゃがばたーころっけでもうしわけございませんごゆっくりどうぞよやくですかわかりましたいつですからいしゅうのきんようびわかりましたではおまちしてますしーゆーねくすとうぃーくばいばい]/g;
               var found_2 = training_word.match(text_2);
               console.log(found_2);
               var speaking_smoothry_score= found_2.length/390*100;
@@ -105,8 +106,10 @@ document.addEventListener("DOMContentLoaded", function(){
                 //console.log(json.redirect);
                 //console.log(json.data.redirect);
               if (result.redirect) {
+                setTimeout(function(){
                 window.location.href = result.redirect;
-              }
+                }, 3*1000);
+              } 
               })
                   //.done(function(result){
                   //console.log(json);
