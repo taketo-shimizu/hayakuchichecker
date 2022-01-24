@@ -30,8 +30,7 @@ https://www.hayakuchichecker.com
   * 超早口モード(1秒/5.5文字より少なく話しておりかなりゆっくりの方向け)  
     早口で有名な某漫才コンビの音声がフリースタイルのビートに乗って流れます。
     カラオケの要領で口に出して話すことで速く話すトレーニングを行います。
-# 画面遷移図
-https://www.figma.com/file/MlOApU8qHyH0OJJcPHdEJU/早口チェッカー?node-id=0%3A1
+
 
 # ER図
 https://drive.google.com/file/d/1bFzha6C6Bs-17QLDRL2N9SPzsVLvj96n/view?usp=sharing
