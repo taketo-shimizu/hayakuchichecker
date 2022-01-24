@@ -1,36 +1,36 @@
 document.addEventListener("DOMContentLoaded", function(){
-$(function(){
-  
-  var youichi_video=document.getElementById('youichi_video');
-  window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+  $(function(){
+    var youichi_video=document.getElementById('youichi_video');
+    window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
     var speech = new webkitSpeechRecognition();
     speech.continuous = true;
     speech.interimResults = true;
     speech.lang = 'ja-JP';
-    
+      
     let stream = null;
     var mediaRecorder;
     var localStream;
+    
     $("#mike_check").on("click", function(){
       // getUserMedia
       if (!stream) {
           // getUserMediaはpromise を返す
-          navigator.mediaDevices.getUserMedia({
-              video: false,
-              audio: true
-          })
-              .then(function (audio) { // promiseのresultをaudioStreamに格納
-                  stream = audio;
-                  console.log('録音に対応しています');
-                 
-                  //mike_check.style.display = "none";
-                  $('#mike_check').css('display', 'none');
-                  return stream
-              })
-              .catch(function (error) { // error
-                  console.error('mediaDevice.getUserMedia() error:', error);
-                  return;
-              });
+        navigator.mediaDevices.getUserMedia({
+          video: false,
+          audio: true
+        })
+        .then(function (audio) { // promiseのresultをaudioStreamに格納
+            stream = audio;
+            console.log('録音に対応しています');
+          
+            //mike_check.style.display = "none";
+            $('#mike_check').css('display', 'none');
+            return stream
+        })
+        .catch(function (error) { // error
+            console.error('mediaDevice.getUserMedia() error:', error);
+            return;
+        });
       }
       $("#youichi_video").css("display", "block")
       $('#training_status').css('display', 'block');
@@ -45,7 +45,7 @@ $(function(){
       },2000);
       speech.start();
     }, true);
-   
+    
     youichi_video.addEventListener('ended', function(){
       $("#training_status").text("結果画面へ移ります・・・");
       speech.onerror = function () {
@@ -121,6 +121,5 @@ $(function(){
         }
       }
     }, true);
- 
   });
 }, false);

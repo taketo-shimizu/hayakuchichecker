@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'inquiry', to: 'home#inquiry'
   get 'terms', to: 'home#terms'
 
-  resources :games, only: %i[index new create ] do
+  resources :games, only: %i[index new create] do
     member do
       get :result
     end
