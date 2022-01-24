@@ -1,26 +1,27 @@
 <div class="container">
   <div class="row">
-  <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
-    <h1>ゲームメニュー</h1>
-    <div class= "fake"></div>
-    <div class= "text-left">
-      <div class="menu_1 m-5">
-      <%= link_to new_game_path, data: {"turbolinks" => false} do %>
-          <button class="btn btn-primary btn-lg">NEW GAME</button>
-      <%end%>
-      <p class="menu">初めての方はまず自分が早口かどうか計測しましょう</p>
-      </div>
-      <div class="menu_2 m-5">
-      <%= link_to high_slow_mode_trainings_path, data: {"turbolinks" => false} do %>
-          <button class="btn btn-primary btn-lg">超ゆっくりモード</button>
-      <% end %>
-      <p class="menu">早口の方向けのゆっくり話す矯正トレーニングです</p>
-      </div>
-      <div class="menu_3 m-5">
-      <%= link_to high_speed_mode_trainings_path, data: {"turbolinks" => false} do %>
-          <button class="btn btn-primary btn-lg">超早口モード</button>
-      <% end %>
-      <p class="menu">話すのが遅い方向けの速く話す矯正トレーニングです</p>
+    <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
+      <h1>ゲームメニュー</h1>
+      <div class= "fake"></div>
+      <div class= "text-left">
+        <div class="menu_1 m-5">
+          <%= link_to new_game_path, data: {"turbolinks" => false} do %>
+            <button class="btn btn-primary btn-lg">NEW GAME</button>
+          <%end%>
+          <p class="menu">初めての方はまず自分が早口かどうか計測しましょう</p>
+        </div>
+        <div class="menu_2 m-5">
+          <%= link_to high_slow_mode_trainings_path, data: {"turbolinks" => false} do %>
+            <button class="btn btn-primary btn-lg">超ゆっくりモード</button>
+          <% end %>
+          <p class="menu">早口の方向けのゆっくり話す矯正トレーニングです</p>
+        </div>
+        <div class="menu_3 m-5">
+          <%= link_to high_speed_mode_trainings_path, data: {"turbolinks" => false} do %>
+            <button class="btn btn-primary btn-lg">超早口モード</button>
+          <% end %>
+          <p class="menu">話すのが遅い方向けの速く話す矯正トレーニングです</p>
+        </div>
       </div>
     </div>
   </div>

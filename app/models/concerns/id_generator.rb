@@ -1,5 +1,4 @@
 module IdGenerator
-
   def self.included(uuid)
     uuid.before_create :generate_uuid
   end
@@ -10,5 +9,4 @@ module IdGenerator
       break uuid unless self.class.exists?(id: uuid)
     end
   end
-
 end

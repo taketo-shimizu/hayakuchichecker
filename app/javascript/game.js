@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-$(function(){
+  $(function(){
     window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
     var speech = new webkitSpeechRecognition();
     speech.continuous = true;
@@ -19,37 +19,37 @@ $(function(){
     var rNo = Math.floor(Math.random() * target.length);
     target[rNo].style.display = "block";
 
+    //マイクチェック
     $("#mike_check").on("click", function(){
       // getUserMedia
       if (!stream) {
-          // getUserMediaはpromise を返す
-          navigator.mediaDevices.getUserMedia({
-              video: false,
-              audio: true
-          })
-              .then(function (audio) { // promiseのresultをaudioStreamに格納
-                  stream = audio;
-                  console.log('録音に対応しています');
-                 
-                  //mike_check.style.display = "none";
-                  $('#mike_check').css('display', 'none');
-                  return stream
-              })
-              .catch(function (error) { // error
-                  console.error('mediaDevice.getUserMedia() error:', error);
-                  return;
-              });
+        // getUserMediaはpromise を返す
+        navigator.mediaDevices.getUserMedia({
+          video: false,
+          audio: true
+        })
+        .then(function (audio) { // promiseのresultをaudioStreamに格納
+          stream = audio;
+          console.log('録音に対応しています');
+          
+          //mike_check.style.display = "none";
+          $('#mike_check').css('display', 'none');
+          return stream
+        })
+        .catch(function (error) { // error
+          console.error('mediaDevice.getUserMedia() error:', error);
+          return;
+        });
       }
      
       //start_btn.style.display = "inline-block";
       //stop_btn.style.display = "inline-block";
       $('#start_btn').css('display', 'inline-block');
       $('#stop_btn').css('display', 'inline-block');
-  
     });
     
+    //スタートボタンを押して文字起こしAPIと録音APIを作動
     $("#start_btn").on("click", function(){
-      //音声認識を開始
       speech.start();
       s_time = new Date();
       
@@ -67,10 +67,8 @@ $(function(){
             console.log(err);
         })
     });
-        
+    //ストップボタンを押して音声認識を終了
     $("#stop_btn").on("click", function(){
-      //音声認識を完了
-    
       var e_time = new Date();
       var diff = e_time.getTime() - s_time.getTime();
       var talking_time = diff / 1000;
@@ -88,6 +86,7 @@ $(function(){
           var autotext = e.results[0][0].transcript
           console.log("発した文字", autotext)
           
+          //ひらがな化APIに結果を通す
           var data = {
             //gooラボ ひらがな化API
             app_id: 'a5e4e8dd5686de7743b620c720e89beca5e5a5dca31ed4a74b7b6efddf5cebc1',
@@ -112,8 +111,8 @@ $(function(){
             url: "https://labs.goo.ne.jp/api/hiragana",
             contentType: "application/json",
             data: jsonEncoded,
-          
           } )
+          //ひらがな化の結果を返す
           .done(function(data) {
             console.log("発した文字(ひらがな):", data.converted);
             $("#status").text(data.converted);
@@ -123,9 +122,7 @@ $(function(){
             var fast_talking_score = word_count/talking_time;
             console.log("1秒あたりの文字数", fast_talking_score);
             mediaRecorder.stop()
-            console.log("Status: " + mediaRecorder.state);
             mediaRecorder.ondataavailable = function (event) {
-
               /*let blob = new Blob([event.data], { type: "audio/wav" });
               var audio = document.createElement('audio');
               audio.controls = false;
@@ -145,7 +142,7 @@ $(function(){
               }
               let voicefile = new File([buffer.buffer], bin, {type: "audio/wav"});*/
               
-              
+              //フォームデータでajax送信をする
               var fd = new FormData;
                 fd.append('voice_data', event.data);
                 fd.append("fast_talking_score", fast_talking_score);
@@ -201,25 +198,20 @@ $(function(){
               //const audioElement = document.querySelector("audio");
               //audioElement.playbackRate = 1.5;
               //var voice= event.data;
-            
-            
-            
-            
-           
-          }
-          localStream.getTracks().forEach(track => track.stop());
-        })
+            }
+            localStream.getTracks().forEach(track => track.stop());
+          })
         }
       }
     });
-    
+
+    //ストップウォッチ機能
     reset_timer();
   
     var timer;
     var timerID;
     var timerFlag = 0;	// 0:停止 1:動作
   
-    
     $(document).on("click", "#start_btn", function(){
       start_count();
     });
