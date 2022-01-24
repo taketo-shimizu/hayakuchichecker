@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function(){
           speech.stop();
           if(e.results[0].isFinal){
             var autotext = e.results[0][0].transcript
-            $("#training_status").text(autotext);
             console.log("発した文字", autotext);
             var data = {
               //gooラボ ひらがな化API
@@ -87,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function(){
             } )
             .done(function(data) {
               console.log("発した文字(ひらがな):", data.converted);
+              $("#training_status").text(data.converted);
               var training_word = data.converted;
               console.log("発した文字(ひらがな):", training_word);
               var text_2 = /[ばいとりーだーのゆめひろがりとらひこですおきゃくさまごちゅうもんのほうはいつものやつでいつものえびふらいのそーすをまよねーずにかえてれもんのかわりにすだちをしぼってにんじんをばらのかたちにさえぎってさいごにぜんたいてきにぱせりをふりかけるやつですねちがいますかほっかいどうじゃがばたーころっけでもうしわけございませんごゆっくりどうぞよやくですかわかりましたいつですからいしゅうのきんようびわかりましたではおまちしてますしーゆーねくすとうぃーくばいばい]/g;
