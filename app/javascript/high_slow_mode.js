@@ -85,10 +85,9 @@ $(function(){
           } )
           .done(function(data) {
             console.log("発した文字(ひらがな):", data.converted);
-            $("#training_status").text(data.converted);
             var training_word = data.converted;
             console.log("発した文字(ひらがな):", training_word);
-            var text = /[やりたいことやってみようぼくがみんなにつたえたいことはねやりたいことがあったらやってみようということやってみるとたのしいんだよ]/g;
+            var text = /[やりたいことやってみようぼくがみんなにつたえたいことはねやりたいことがあったらやってみようということやってみるとたのしいんだよやりたいことがあればやってみよういきたいところがあればいってみよう]/g;
             var found = training_word.match(text);
             console.log(found);
             var speaking_smoothry_score= found.length/96*100;
@@ -104,9 +103,7 @@ $(function(){
                 //console.log(json.redirect);
                 //console.log(json.data.redirect);
               if (result.redirect) {
-                setTimeout(function(){
                 window.location.href = result.redirect;
-                }, 3*1000);
               }
             })
                 //.done(function(result){
