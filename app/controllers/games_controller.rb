@@ -1,8 +1,4 @@
 class GamesController < ApplicationController
-  def index; end
-
-  def new; end
-
   def create
     @game = Game.new(
       fast_talking_score: params[:fast_talking_score],

@@ -34,3 +34,6 @@ https://www.hayakuchichecker.com
 
 # ER図
 https://drive.google.com/file/d/1bFzha6C6Bs-17QLDRL2N9SPzsVLvj96n/view?usp=sharing
+
+# 画面遷移図
+https://www.figma.com/file/KuoOchtvSaCOjAsaWUuFMf/Untitled?node-id=6%3A80
