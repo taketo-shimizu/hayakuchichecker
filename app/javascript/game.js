@@ -15,9 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var localStream;
     
     //サンプルテキストをランダム表示
-    var target = document.getElementsByClassName("sample_text");
-    var rNo = Math.floor(Math.random() * target.length);
-    target[rNo].style.display = "block";
+    
 
     //マイクチェック
     $("#mike_check").on("click", function(){
