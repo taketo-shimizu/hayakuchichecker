@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
   $(function(){
     window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-    var speech = new webkitSpeechRecognition();
+    const speech = new webkitSpeechRecognition();
     speech.continuous = true;
     speech.interimResults = true;
     speech.lang = 'ja-JP';
@@ -9,41 +9,23 @@ document.addEventListener("DOMContentLoaded", function(){
     const start_btn = document.getElementById("start_btn")
     const stop_btn = document.getElementById("stop_btn")
 
-    let stream = null;
-
     var mediaRecorder;
     var localStream;
     
-    //サンプルテキストをランダム表示
-    
-
     //マイクチェック
     $("#mike_check").on("click", function(){
       // getUserMedia
-      if (!stream) {
-        // getUserMediaはpromise を返す
-        navigator.mediaDevices.getUserMedia({
-          video: false,
-          audio: true
-        })
-        .then(function (audio) { // promiseのresultをaudioStreamに格納
-          stream = audio;
-          console.log('録音に対応しています');
-          
-          //mike_check.style.display = "none";
+      navigator.mediaDevices.getUserMedia({audio: true })
+      .then(function (stream) {
+          localStream = stream;
           $('#mike_check').css('display', 'none');
-          return stream
-        })
-        .catch(function (error) { // error
-          console.error('mediaDevice.getUserMedia() error:', error);
+          $('#start_btn').css('display', 'inline-block');
+          $('#stop_btn').css('display', 'inline-block');
+          return localStream
+      }).catch(function (err) {
+          console.log(err);
           return;
-        });
-      }
-     
-      //start_btn.style.display = "inline-block";
-      //stop_btn.style.display = "inline-block";
-      $('#start_btn').css('display', 'inline-block');
-      $('#stop_btn').css('display', 'inline-block');
+      })
     });
     
     //スタートボタンを押して文字起こしAPIと録音APIを作動
