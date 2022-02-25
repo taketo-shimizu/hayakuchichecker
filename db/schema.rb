@@ -10,20 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_113_151_607) do
-  create_table 'games', id: :string, limit: 36, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
-    t.float 'fast_talking_score', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'word_count', null: false
-    t.float 'talking_time', null: false
-    t.string 'voice_data'
+ActiveRecord::Schema.define(version: 2022_02_22_102018) do
+
+  create_table "games", id: :string, limit: 36, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.float "fast_talking_score", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "word_count", null: false
+    t.float "talking_time", null: false
+    t.string "voice_data"
   end
 
-  create_table 'trainings', id: :string, limit: 36, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-                            force: :cascade do |t|
-    t.integer 'speaking_smoothry_score', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "themes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
+
+  create_table "trainings", id: :string, limit: 36, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "speaking_smoothry_score", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end

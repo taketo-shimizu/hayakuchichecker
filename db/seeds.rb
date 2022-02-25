@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Theme.create(content: 'むかしむかしあるところにおじいさんとおばあさんがすんでいました' )
+Theme.create(content: 'おじいさんはやまへしばかりに、おばあさんはかわへせんたくにいきました' )
+Theme.create(content: 'おばあさんがかわでせんたくをしていると、ドンブラコ、ドンブラコと、おおきなももがながれてきました' )

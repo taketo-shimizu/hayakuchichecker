@@ -1,4 +1,8 @@
 class GamesController < ApplicationController
+  def new
+    @theme = Theme.all.sample
+  end
+  
   def create
     @game = Game.new(
       fast_talking_score: params[:fast_talking_score],
@@ -9,7 +13,7 @@ class GamesController < ApplicationController
 
     if @game.save
       respond_to do |format|
-        format.json { render json: { redirect: result_game_url(@game) } }
+        format.json { render json: { url: result_game_url(@game) } }
       end
     end
   end

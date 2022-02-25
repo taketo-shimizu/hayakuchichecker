@@ -135,9 +135,9 @@ document.addEventListener("DOMContentLoaded", function(){
                     processData: false,
                     contentType: false
                   }).done(function(result){
-                    if (result.redirect) {
+                    if (result.url) {
                       setTimeout(function(){
-                      window.location.href = result.redirect;
+                      window.location.href = result.url;
                       }, 3*1000);
                     }
                   })
@@ -186,13 +186,16 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     //ストップウォッチ機能
-    reset_timer();
-  
     var timer;
     var timerID;
     var timerFlag = 0;	// 0:停止 1:動作
+
+    if(timerFlag === 1){
+			stop_count();
+		}
+		timer = 0; 
   
-    $(document).on("click", "#start_btn", function(){
+    $("#start_btn").on("click", function(){
       start_count();
     });
 
@@ -200,29 +203,17 @@ document.addEventListener("DOMContentLoaded", function(){
       stop_count();
     });
  
-    function reset_timer() {
-      if(timerFlag === 1){
-        stop_count();
-      }
-      timer = 0; 
-      $("#counter").val("00:00:00:00");
-    }
-  
-
     function start_count() { 					
-      $("#start_btn").val("stop");
       timerFlag = 1;
       timerID = setInterval(count_up, 10); 
     }
   
 
     function stop_count() { 					
-      $("#stop_btn").val("start");
       timerFlag = 0;
       clearInterval(timerID);
     }
   
-
     function count_up() {
       ++timer;
       var formatTimer = counter_format(timer);
