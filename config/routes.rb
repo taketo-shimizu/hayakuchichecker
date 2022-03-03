@@ -10,11 +10,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :trainings, only: %i[new create] do
-    collection do
-      get :high_speed_mode
-      get :high_slow_mode
+  resources :fast_trainings, only: %i[new create] do
+    member do
+      get :result
     end
+  end
+
+  resources :slow_trainings, only: %i[new create] do
     member do
       get :result
     end

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+  <%= render "shared/header" %>
+    <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
+      <h1>このトレーニングについて</h1>
+      <div class="fake mb-5"></div>
+        <p class= "mb-3">あなたは相当の早口で荒療治が必要です<br>
+          話すのが遅いことで有名な某戦場カメラマンの音声がフリースタイルのビートに乗って流れます<br>
+          カラオケの要領で口に出して話してみましょう<br>
+          滑舌のテストもしているので気をつけてください<br>
+          ※動画を途中で停止させないでください<br>
+          ※音声認識が途切れるので無音状態は控えてください
+        </p>
+        <%= video_tag("/movies/youichi.mp4",controls: :true, class: 'video-content pb-3', id:'youichi_video', style:'display: none;') %>
+      <div class="training_border mb-3" style="display: none;"></div>
+      <button class = "btn btn-primary btn-lg m-5" id="mike_check" style="display: block;" >マイクチェック</button>
+      <p id="training_status" style="display: none;" >動画の再生と同時に計測スタートです</p>
+      <div class="training_border mt-3 mb-5" style="display: none;"></div>
+    </div>
+  </div>
+</div>
