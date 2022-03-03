@@ -185,6 +185,10 @@ document.addEventListener("DOMContentLoaded", function(){
       }
     });
 
+    //結果画面で音声速度を加工する
+    const audio_mixed = document.getElementById("audio_mixed");
+    audio_mixed.playbackRate = 5/gon.fast_talking_score;
+
     //ストップウォッチ機能
     var timer;
     var timerID;

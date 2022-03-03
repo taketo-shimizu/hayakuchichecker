@@ -14,8 +14,8 @@ import 'bootstrap';
 import '../stylesheets/application';
 require('data-confirm-modal')
 require('game.js')
-require('high_slow_mode.js')
-require('high_speed_mode.js')
+require('slow_training.js')
+require('fast_training.js')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

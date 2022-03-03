@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
+      <h1 class="game_result mb-5">計測お疲れ様でした!</h1>
+      <div class= "result_messages">
+        <% if @fast_training.speaking_smoothry_score>60 %>
+          <div class= "result_message">おめでとうございます! あなたは全体の<%= @fast_training.speaking_smoothry_score %>%を滑舌良く話せていました!</div>
+          速く話す癖が少し身についたのではないでしょうか?<br>
+          滑舌も速さと同様繰り返し練習することで向上していくので<br>
+          また挑戦してみてくださいね!
+        <% elsif @fast_training.speaking_smoothry_score<60 %>
+          <div class= "result_message">残念...あなたは全体の<%= @fast_training.speaking_smoothry_score %>%だけしか滑舌良く話せていませんでした...</div>
+          速すぎてついていけなかったですかね?<br>
+          滑舌も速さと同様繰り返し練習することで向上していくので<br>
+          また挑戦してみてくださいね!
+        <% end %>
+      </div>
+      <div class="training_menu m-5">
+        <%= link_to new_fast_training_path, data: {"turbolinks" => false} do %>
+          <button class="btn btn-primary btn-lg m-5">もう一度挑戦する</button>
+        <% end %>
+        <%= link_to root_path do %>
+          <button class="btn btn-primary btn-lg m-5">トップページへ</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
