@@ -16,6 +16,7 @@ require('data-confirm-modal')
 require('game.js')
 require('slow_training.js')
 require('fast_training.js')
+require('polly.js')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
