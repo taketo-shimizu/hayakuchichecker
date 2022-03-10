@@ -1,12 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
+      <h1>この機能について</h1>
+      <div class="fake mb-5"></div>
+      <p class= "mb-3">以下のテキストボックスに文章を入力してください<br>
+                       リアルで適切な速さの音声が流れます<br>
+                       ※ここでいう適切な速さとは1秒間に5文字です
+      </p>
       <form id="input" method="GET" action="/games/read">
-        <%= text_field_tag :text,'', class: 'js-text_field', placeholder: 'タイトルを入力してください' %>
-        <button class = "btn btn-primary btn-lg m-5", id="submit" >送信</button>
+        <%= text_field_tag :text,'', placeholder: 'テキストを入力してください', size:60 %>
+        <button class = "btn btn-primary btn-lg m-5", id="submit" >読み上げる</button>
       </form>
-
-      <%= audio_tag("", id:"player", controls: true) %>
+      <%= audio_tag("", id:"player", controls: true, class: "mb-5")  %>
+      <div class="polly_menu">
+        <%= link_to games_path, data: {"turbolinks" => false} do %>
+          <button class="btn btn-primary btn-lg mx-5 mt-5">一覧にもどる</button>
+        <% end %>
+        <%= link_to new_game_path, data: {"turbolinks" => false} do %>
+          <button class="btn btn-primary btn-lg mx-5 mt-5">早口診断へ進む</button>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

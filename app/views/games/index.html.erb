@@ -5,18 +5,24 @@
       <div class= "fake"></div>
       <div class= "text-left">
         <div class="menu_1 m-5">
+        <%= link_to polly_games_path, data: {"turbolinks" => false} do %>
+          <button class="btn btn-primary btn-lg">音声読み上げモード</button>
+        <%end%>
+        <p class="menu">適切な速さがどのくらいか試しにやってみてください</p>
+        </div>
+        <div class="menu_2 m-5">
           <%= link_to new_game_path, data: {"turbolinks" => false} do %>
             <button class="btn btn-primary btn-lg">NEW GAME</button>
           <%end%>
-          <p class="menu">初めての方はまず自分が早口かどうか計測しましょう</p>
+          <p class="menu">自分が早口かどうか計測しましょう</p>
         </div>
-        <div class="menu_2 m-5">
+        <div class="menu_3 m-5">
           <%= link_to new_slow_training_path, data: {"turbolinks" => false} do %>
             <button class="btn btn-primary btn-lg">超ゆっくりモード</button>
           <% end %>
           <p class="menu">早口の方向けのゆっくり話す矯正トレーニングです</p>
         </div>
-        <div class="menu_3 m-5">
+        <div class="menu_4 m-5">
           <%= link_to new_fast_training_path, data: {"turbolinks" => false} do %>
             <button class="btn btn-primary btn-lg">超早口モード</button>
           <% end %>

@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
   input.addEventListener('submit', function (event) {
     player.src = '/games/read?text=' + encodeURIComponent(text.value);
+    player.playbackRate = 5/7;
+    player.play();
     event.preventDefault();
   });
 }, false);
