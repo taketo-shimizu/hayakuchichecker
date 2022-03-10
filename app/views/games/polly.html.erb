@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="position-absolute h-100 w-100 m-0 d-flex flex-column align-items-center justify-content-center ">
+      <form id="input" method="GET" action="/games/read">
+        <%= text_field_tag :text,'', class: 'js-text_field', placeholder: 'タイトルを入力してください' %>
+        <button class = "btn btn-primary btn-lg m-5", id="submit" >送信</button>
+      </form>
+
+      <%= audio_tag("", id:"player", controls: true) %>
+    </div>
+  </div>
+</div>

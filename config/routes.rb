@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     member do
       get :result
     end
+    collection do
+      get :polly
+      get :read
+    end
   end
 
   resources :fast_trainings, only: %i[new create] do

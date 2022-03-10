@@ -30,6 +30,7 @@ gem 'carrierwave'
 gem 'carrierwave-audio'
 gem 'dotenv-rails'
 gem 'fog-aws'
+gem 'aws-sdk-polly'
 gem 'gon'
 gem 'meta-tags'
 
